@@ -29,9 +29,11 @@ const pAequorFactory = (randomNum, newStrand) => {
       let i = Math.floor(Math.random()*15);
       console.log(i);
       let randomBase = returnRandomBase();
-      if (randomBase = newStrand[i]) {
+      if (randomBase != newStrand[i]) {
+        this.dna.splice(i,1,randomBase);
+      } else if (randomBase = newStrand[i]) {
         randomBase = returnRandomBase();
-        this.dna.slice(i,1,randomBase);
+        this.dna.splice(i,1,randomBase);
       } 
         return this.dna;
     }
