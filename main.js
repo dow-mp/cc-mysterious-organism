@@ -29,13 +29,22 @@ const pAequorFactory = (randomNum, newStrand) => {
       let i = Math.floor(Math.random()*15);
       console.log(i);
       let randomBase = returnRandomBase();
-      if (randomBase != newStrand[i]) {
+      let currentBase = newStrand[i];
+      if (randomBase != currentBase) {
         this.dna.splice(i,1,randomBase);
       } else if (randomBase = newStrand[i]) {
-        randomBase = returnRandomBase();
+        randomBase = returnRandomBase(); //what if this returns the same randomBase again - add value of newStrand[i] as a var and set if statement so that randomBase != this variable?
         this.dna.splice(i,1,randomBase);
       } 
         return this.dna;
+    },
+    compareDNA(obj) {
+      for (i=0; i<obj.length; i++) {
+        //NEED JS NOTEBOOK FOR EXAMPLE OF ARRAY COMPARISON USING FOR LOOP - believe you compare each item with a for loop within a for loop and then .push to a new array for each matching element
+      }
+      /*.compareDNA() has one parameter, another pAequor object.
+
+    The behavior of .compareDNA() is to compare the current pAequor‘s .dna with the passed in pAequor‘s .dna and compute how many bases are identical and in the same locations. .compareDNA() does not return anything, but prints a message that states the percentage of DNA the two objects have in common — use the .specimenNum to identify which pAequor objects are being compared.*/
     }
   }
 }
