@@ -68,10 +68,26 @@ const pAequorFactory = (randomNum, dnaArray) => {
       }
     }
   }
-}
+};
 
-const newOrgA = pAequorFactory(randomNum(), mockUpStrand());
-const newOrgB = pAequorFactory(randomNum(), mockUpStrand());
+const createSurvivorOrgArray = () => {
+  let survivorOrgArray = [];
+  let count = 0;
+  for (let m=0; count<30; m++) {
+   const newOrg = pAequorFactory(randomNum(), mockUpStrand());
+    if (newOrg.willLikelySurvive() === true) {
+      count++;
+      survivorOrgArray.push(newOrg);
+    }
+  };
+  //console.log(`--------The number of organims likely to survive is: ${survivorOrgArray.length}--------`);
+  //console.log(survivorOrgArray);
+  return survivorOrgArray;
+};
+
+
+//const newOrgA = pAequorFactory(randomNum(), mockUpStrand());
+//const newOrgB = pAequorFactory(randomNum(), mockUpStrand());
 
 //console.log(newOrgA);
 //console.log(newOrgB);
@@ -82,7 +98,7 @@ const newOrgB = pAequorFactory(randomNum(), mockUpStrand());
 //console.log(newOrgA.willLikelySurvive());
 //console.log(newOrgB.willLikelySurvive());
 
-
+createSurvivorOrgArray();
 
 
 
